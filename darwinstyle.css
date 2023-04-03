@@ -28,3 +28,12 @@ li {
 li:first-child {
     background-color: lime;
 }
+
+img {
+    width:250px;
+    height: 200px;
+}
+
+h1:first-letter {
+    color: cyan;
+}
