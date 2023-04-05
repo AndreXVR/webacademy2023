@@ -45,3 +45,10 @@ p.resultados{
     margin-right: 3cm;
 }
 
+body {
+    margin-left: 3cm;
+    margin-right: 3cm;
+    font-family: 'Times New Roman', Times, serif;
+    text-indent: 1cm;
+    font-size: 12pt;
+}
