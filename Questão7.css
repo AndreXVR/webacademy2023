@@ -1,0 +1,51 @@
+.artist {
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: moccasin;
+}
+
+.title {
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: khaki;
+}
+
+.album {
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: khaki;
+}
+
+
+.year {
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: ivory;
+}
+
+body{
+    background-color: chocolate;
+}
+
+.stanza{
+    font-size: 14pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: gold;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+
+.chorus{
+    font-size: 14pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: gold;
+    font-style: italic;
+    margin-left: 4cm;
+    margin-right: 4cm;
+}
