@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin and Padding exercise 2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        h1 {
+            text-align: center;
+            background-color: yellow;
+        }
+
+        .menu-container {
+            float: left;
+        }
+
+        .post-container {
+            float: left;
+            margin-left: 100px;
+            border-left: 4px solid green;
+            padding-left: 10px;
+        }
+
+        .history-container {
+            text-align: right;
+            float: right;
+            border: 4px dashed green;
+            padding: 16px;
+        }
+
+        .contact {
+            text-align: center;
+            bottom: 0px;
+            clear:both;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>My blog about my life</h1>
+    <div class="menu-container">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Today</a></li>
+            <li><a href="#">Yesterday</a></li>
+            <li><a href="#">Last week</a></li>
+            <li><a href="#">Archives</a></li>
+        </ul>
+    </div>
+    <div class="post-container">
+        <h2>Meeting with supervisor</h2>
+        <p>14 Dec 2011 <br><br>
+            Today I went to the university by bus.<br><br>
+            I had a met with my PhD supervisor.</p>
+        <h2>New car!!!</h2>
+        <p>12 Dec 2011<br><br>
+            Today I bought my new car. It's a Honda Accord and it's really nice.<br><br>
+            I met some friends at a pub.</p>
+        <h2>Visit my parents</h2>
+        <p>10 Dec 2011<br><br>
+            Tried to contact my PhD supervisor. He was out of his office.<br><br>
+            I visited my parents and we had a nice dinner together.</p>
+    </div>
+    <div class="history-container">
+        <h2>Last posts</h2>
+        <ul>
+            <li><a href="#">Meeting with supervisor</a></li>
+            <li><a href="#">New car!!!</a></li>
+            <li><a href="#">Visit my parents</a></li>
+        </ul>
+    </div>
+    <p class="contact">Contact me: <a href="#">email@something.com</a></p>
+</body>
+
+</html>
