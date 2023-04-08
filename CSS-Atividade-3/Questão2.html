@@ -1,0 +1,78 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Header</title>
+    <style>
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-family: monospace;
+            background: #0B6D1E;
+            padding: 8px;
+        }
+
+        .left-links {
+            display: inline;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 900;
+            color: thistle;
+            background: white;
+            padding: 4px 32px;
+        }
+
+        .right-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        li {
+            display: inline;
+        }
+
+        ul {
+            /* remove os pontos da lista de items*/
+            list-style-type: none;
+            padding-inline-start: 0px;
+        }
+
+        a {
+            font-size: 22px;
+            background: white;
+            padding: 8px;
+            /* remove o sublinhado dos links */
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-links">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="logo">LOGO</div>
+        <div class="right-links">
+            <ul>
+                <li><a href="#">FORUM</a></li>
+                <li><a href="#">FONE</a></li>
+                <li><a href="#">MANUAL</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
