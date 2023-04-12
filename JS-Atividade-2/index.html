@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tabuada {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px 40px 0px 40px;
+        }
+
+        .coluna {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 140px;
+            height: 700px;
+            padding: 0px 10px, 0px 10px;
+            margin: 0px 20px;
+            border: 5px solid black;
+            border-radius: 20px;
+        }
+
+        .header {
+            font-size: 100px;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+
+        .cell {
+            background-color: white;
+            text-align: center;
+            width: 120px;
+            border-radius: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+        }
+
+        .input {
+            margin-left: 600px;
+            margin-top: 20px;
+            width:100px;
+            font-size: 60px;
+        }
+
+        .invis {
+            visibility: hidden;
+        }
+
+        #button{
+            font-size: 60px;
+        }
+
+        #c1{background-color: aqua;}
+        #c2{background-color: red;}
+        #c3{background-color: green;}
+        #c4{background-color: brown;}
+        #c5{background-color: purple;}
+        #c6{background-color: blue;}
+        #c7{background-color: gray;}
+        #c8{background-color: orange;}
+        #c9{background-color: black;}
+        #c10{background-color: pink;}
+    </style>
+</head>
+
+<body>
+    <input id= "input" class="input" type="text">
+    <button id="button" type="button" onclick="mostrarTabuada()">Mostrar</button>
+    <div class="tabuada">
+
+    </div>
+    <script>
+        let texto, coluna;
+        let tabuada = document.getElementsByClassName("tabuada")[0];
+        for (let k = 1; k <= 10; k++) {
+            coluna = document.createElement("div");
+            coluna.className = "coluna invis";
+            coluna.id = `c${k}`;
+            texto = document.createElement("p");
+            texto.className = "header";
+            texto.innerHTML = `${k}`;
+            coluna.appendChild(texto);
+            for (let i = 1; i <= 10; i++) {
+                texto = document.createElement("p");
+                texto.innerHTML = `${k} x ${i} = ${1 * i}`
+                texto.className = "cell";
+                coluna.appendChild(texto);
+            }
+            tabuada.appendChild(coluna);
+        }
+        let input = document.getElementById("input");
+
+        function mostrarTabuada(){
+            let coluna;
+            for(let i = 1; i<= 10; i++){
+                coluna = document.getElementById(`c${i}`);
+                coluna.className = "coluna invis";
+            }
+            let input = document.getElementById("input");
+            for(let i = 1; i<= parseInt(input.value); i++){
+                coluna = document.getElementById(`c${i}`);
+                coluna.className = "coluna";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
