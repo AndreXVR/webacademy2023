@@ -1,6 +1,6 @@
 import http from "http";
 import fs from "fs";
-import {toUpper,createLink} from './utils';
+import utils from './utils';
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,16 +14,16 @@ const server = http.createServer((req,res) =>{
             if (err) console.log(err);
             else{
                 res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
-                files.forEach(f => res.write(createLink(f)));
-                res.end(toUpper("Instituto de Computação"));
+                files.forEach(f => res.write(utils.createLink(f)));
+                res.end(utils.toUpper("Instituto de Computação"));
             }
         });
     }else{
         fs.readFile(`${folder}/${req.url}`,(err,output) => {
             res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
-            res.write("<a href='/'>Voltar</a><br>");
+            res.write(utils.createVoltar());
             res.write(output);
-            res.end(toUpper("Instituto de Computação"));
+            res.end(utils.toUpper("Instituto de Computação"));
         });
     }
 })
