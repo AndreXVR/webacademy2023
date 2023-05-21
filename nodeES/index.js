@@ -1,6 +1,6 @@
 import http from "http";
 import fs from "fs";
-import utils from './utils';
+import utils from './utils.js';
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -15,7 +15,7 @@ const server = http.createServer((req,res) =>{
             else{
                 res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
                 files.forEach(f => res.write(utils.createLink(f)));
-                res.end(utils.toUpper("Instituto de Computação"));
+                res.end();
             }
         });
     }else if (req.url != "/favicon.ico"){
@@ -23,7 +23,7 @@ const server = http.createServer((req,res) =>{
             res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
             res.write(utils.createVoltar());
             res.write(output);
-            res.end(utils.toUpper("Instituto de Computação"));
+            res.end();
         });
     }
 })
