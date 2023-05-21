@@ -10,19 +10,26 @@ const server = http.createServer((req,res) =>{
     console.log(req.url);
     if(req.url == "/"){
         fs.readdir(folder,(err,files) =>{
-            if (err) console.log(err);
+            if (err){
+                console.log(err);
+            } 
             else{
                 res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
                 files.forEach(f => res.write(createLink(f)));
-                res.end(toUpper("Instituto de Computação"));
+                res.end();
             }
         });
-    }else{
+    }else if (req.url != "/favicon.ico"){
         fs.readFile(`${folder}/${req.url}`,(err,output) => {
-            res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
-            res.write("<a href='/'>Voltar</a><br>");
-            res.write(output);
-            res.end(toUpper("Instituto de Computação"));
+            if (err){
+                console.log(err);
+            } 
+            else{
+                res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
+                res.write("<a href='/'>Voltar</a><br>");
+                res.write(output);
+                res.end();
+            }
         });
     }
 })
