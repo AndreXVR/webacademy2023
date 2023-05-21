@@ -18,7 +18,7 @@ const server = http.createServer((req,res) =>{
                 res.end(utils.toUpper("Instituto de Computação"));
             }
         });
-    }else{
+    }else if (req.url != "/favicon.ico"){
         fs.readFile(`${folder}/${req.url}`,(err,output) => {
             res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"})
             res.write(utils.createVoltar());
@@ -27,6 +27,7 @@ const server = http.createServer((req,res) =>{
         });
     }
 })
+
 server.listen(PORT, () =>{
     console.log(`Rodando na porta ${PORT}`);
 })
