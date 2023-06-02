@@ -1,0 +1,8 @@
+<h1>Technologies powered by NodeJS</h1>
+    <ul>
+    {{#each technologies }}
+    {{#if poweredByNodejs}}
+        <li>{{name}}: {{type}}</li>
+    {{/if}}
+    {{/each}}
+    </ul>
