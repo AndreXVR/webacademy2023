@@ -8,6 +8,6 @@ const connection = new Sequelize({
     password: "1234",
     database: "webacademydb",
     logging: false,
-    models: [Funcionarios],
+    models: [Funcionarios, Departamentos],
 });
 export default connection;

@@ -8,17 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.funcionariosRouter = void 0;
-const express_1 = require("express");
-const Funcionarios_1 = require("../models/Funcionarios");
-const funcionariosRouter = (0, express_1.Router)();
-exports.funcionariosRouter = funcionariosRouter;
-funcionariosRouter.get("/funcionarios", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const funcionarios = yield Funcionarios_1.Funcionarios.findAll();
-    return res.status(200).json(funcionarios);
-}));
-funcionariosRouter.post("/funcionarios", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const departamento = yield Funcionarios_1.Funcionarios.create(Object.assign({}, req.body));
-    return res.status(201).json(departamento);
-}));
+const config_1 = __importDefault(require("./db/config"));
+const server_1 = require("./server");
+const start = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield config_1.default.sync();
+        new server_1.Api().server.listen(3000, () => {
+            console.log("Server started on port 3000");
+        });
+    }
+    catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+});
+void start();
