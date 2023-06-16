@@ -5,12 +5,11 @@ import {
     ForeignKey, BelongsTo, HasOne, HasMany
 } from "sequelize-typescript";
 import { Funcionarios } from "./Funcionarios";
-import { Projetos } from "./Projetos";
 @Table({
     timestamps: true,
     paranoid: true
 })
-export class Departamentos extends
+export class Dependentes extends
     Model {
     @IsUUID('all')
     @PrimaryKey
@@ -20,26 +19,19 @@ export class Departamentos extends
     })
     id!: string;
     @AllowNull(false)
-    @Unique
     @Column({
         type: DataType.STRING,
     })
-    name!: string;
+    nome!: string;
     @AllowNull(false)
     @Column({
-        type: DataType.STRING,
+        type: DataType.INTEGER,
     })
-    sigla!: string;
+    idade!: number;
     @ForeignKey(() => Funcionarios)
     @AllowNull(true)
     @Column({
         type: DataType.UUID,
     })
-    gestorId!: string;
-    @HasOne(() => Funcionarios,
-        'gestorId')
-    gestor!: Funcionarios;
-    @HasMany(() => Projetos,
-        'gestorId')
-    projeto!: Projetos;
+    funcionarioId!: string;
 }

@@ -1,9 +1,12 @@
 import {
     Table, Model, Column, DataType, IsUUID, PrimaryKey,
-    AllowNull, IsEmail, Unique
+    AllowNull, IsEmail, Unique, HasMany, ForeignKey
 } from "sequelize-typescript";
+import { Dependentes } from "./Dependentes";
+import { Departamentos } from "./Departamentos";
 @Table({
     timestamps: true,
+    paranoid: true
 })
 export class Funcionarios extends Model {
     @IsUUID('all')
@@ -36,4 +39,12 @@ export class Funcionarios extends Model {
         type: DataType.INTEGER,
     })
     idade!: number;
+    @HasMany(() => Dependentes)
+    dependente!: Dependentes;
+    @ForeignKey(() => Departamentos)
+    @AllowNull(true)
+    @Column({
+        type: DataType.UUID,
+    })
+    departamentoId!: string;
 }

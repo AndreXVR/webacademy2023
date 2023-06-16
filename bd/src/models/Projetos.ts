@@ -4,13 +4,12 @@ import {
     AllowNull, IsEmail, Unique,
     ForeignKey, BelongsTo, HasOne, HasMany
 } from "sequelize-typescript";
-import { Funcionarios } from "./Funcionarios";
-import { Projetos } from "./Projetos";
+import {Departamentos} from "./Departamentos"
 @Table({
     timestamps: true,
     paranoid: true
 })
-export class Departamentos extends
+export class Projetos extends
     Model {
     @IsUUID('all')
     @PrimaryKey
@@ -24,22 +23,16 @@ export class Departamentos extends
     @Column({
         type: DataType.STRING,
     })
-    name!: string;
+    nome!: string;
     @AllowNull(false)
     @Column({
-        type: DataType.STRING,
+        type: DataType.DATE,
     })
-    sigla!: string;
-    @ForeignKey(() => Funcionarios)
+    dataFinalizacao!: string;
+    @ForeignKey(() => Departamentos)
     @AllowNull(true)
     @Column({
         type: DataType.UUID,
     })
-    gestorId!: string;
-    @HasOne(() => Funcionarios,
-        'gestorId')
-    gestor!: Funcionarios;
-    @HasMany(() => Projetos,
-        'gestorId')
-    projeto!: Projetos;
+    departamentoId!: string;
 }
