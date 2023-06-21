@@ -1,28 +1,16 @@
 import connection from "./db/config";
 import { api } from "./api.info"
-import {Api} from "./server"
-
-const start = async (): Promise<void> => {
-    try {
-        await connection.sync();
-        new Api().server.listen(3000, () => {
-            console.log("Server started on port 3000");
-        });
-    } catch (error) {
-        console.error(error);
-        process.exit(1);
-    }
-};
-void start();
+import { Api } from "./server"
 
 const server = new Api();
 try {
- server.bootstrap()
- .then((server) => {
- console.info(`API Empresa rodando na porta ${api.defaultPort}`);
- });
+    server.bootstrap()
+        .then(async (server) => {
+            await connection.sync();
+            console.info(`API Empresa rodando na porta ${api.defaultPort}`);
+        });
 } catch (error) {
- console.error('Server failed to start.');
- console.error(error);
- process.exit(1);
+    console.error('Server failed to start.');
+    console.error(error);
+    process.exit(1);
 }

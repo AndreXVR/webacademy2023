@@ -19,6 +19,17 @@ Promise<Response> => {
  return res.status(200).json(dependente);
 });
 
+dependentesRouter.get("/dependentes/:id", async (req: Request, res: Response):
+Promise<Response> => {
+ const { id } = req.params;
+ const dependente: Dependentes[] | null = await Dependentes.findAll({
+    where: {
+        funcionarioId: id,
+    },
+ });
+ return res.status(200).json(dependente);
+});
+
 dependentesRouter.post("/dependentes", async (req: Request, res: Response):
 Promise<Response> => {
  const dependente: Dependentes = await Dependentes.create({ ...req.body });

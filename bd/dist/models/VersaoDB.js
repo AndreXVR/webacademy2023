@@ -9,10 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Projetos = void 0;
+exports.VersaoDB = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const Departamentos_1 = require("./Departamentos");
-let Projetos = exports.Projetos = class Projetos extends sequelize_typescript_1.Model {
+let VersaoDB = exports.VersaoDB = class VersaoDB extends sequelize_typescript_1.Model {
 };
 __decorate([
     (0, sequelize_typescript_1.IsUUID)('all'),
@@ -22,33 +21,18 @@ __decorate([
         defaultValue: sequelize_typescript_1.DataType.UUIDV1,
     }),
     __metadata("design:type", String)
-], Projetos.prototype, "id", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    sequelize_typescript_1.Unique,
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-    }),
-    __metadata("design:type", String)
-], Projetos.prototype, "nome", void 0);
+], VersaoDB.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.DATE,
+        type: sequelize_typescript_1.DataType.INTEGER,
+        defaultValue: 0,
     }),
-    __metadata("design:type", String)
-], Projetos.prototype, "dataFinalizacao", void 0);
-__decorate([
-    (0, sequelize_typescript_1.ForeignKey)(() => Departamentos_1.Departamentos),
-    (0, sequelize_typescript_1.AllowNull)(true),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.UUID,
-    }),
-    __metadata("design:type", String)
-], Projetos.prototype, "departamentoId", void 0);
-exports.Projetos = Projetos = __decorate([
+    __metadata("design:type", Number)
+], VersaoDB.prototype, "numeroVersao", void 0);
+exports.VersaoDB = VersaoDB = __decorate([
     (0, sequelize_typescript_1.Table)({
+        paranoid: true,
         timestamps: true,
-        paranoid: true
     })
-], Projetos);
+], VersaoDB);

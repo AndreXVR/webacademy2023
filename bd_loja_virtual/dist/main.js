@@ -13,17 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = __importDefault(require("./db/config"));
+const api_info_1 = require("./api.info");
 const server_1 = require("./server");
-const start = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
+const server = new server_1.Api();
+try {
+    server.bootstrap()
+        .then((server) => __awaiter(void 0, void 0, void 0, function* () {
         yield config_1.default.sync();
-        new server_1.Api().server.listen(3000, () => {
-            console.log("Server started on port 3000");
-        });
-    }
-    catch (error) {
-        console.error(error);
-        process.exit(1);
-    }
-});
-void start();
+        console.info(`API Empresa rodando na porta ${api_info_1.api.defaultPort}`);
+    }));
+}
+catch (error) {
+    console.error('Server failed to start.');
+    console.error(error);
+    process.exit(1);
+}

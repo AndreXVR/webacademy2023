@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Funcionarios = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
+const Dependentes_1 = require("./Dependentes");
+const Departamentos_1 = require("./Departamentos");
 let Funcionarios = exports.Funcionarios = class Funcionarios extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -52,8 +54,21 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], Funcionarios.prototype, "idade", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => Dependentes_1.Dependentes),
+    __metadata("design:type", Dependentes_1.Dependentes)
+], Funcionarios.prototype, "dependente", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => Departamentos_1.Departamentos),
+    (0, sequelize_typescript_1.AllowNull)(true),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUID,
+    }),
+    __metadata("design:type", String)
+], Funcionarios.prototype, "departamentoId", void 0);
 exports.Funcionarios = Funcionarios = __decorate([
     (0, sequelize_typescript_1.Table)({
         timestamps: true,
+        paranoid: true
     })
 ], Funcionarios);

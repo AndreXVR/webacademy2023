@@ -30,8 +30,8 @@ export class Api {
     public server: express.Application;
     constructor() {
         this.server = express();
-        this.middleware();
-        this.router();
+        //this.middleware();
+        //this.router();
     }
     /*
     private middleware() {

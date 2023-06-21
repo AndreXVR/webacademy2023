@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.departamentosRouter = void 0;
 const express_1 = require("express");
 const Departamentos_1 = require("../models/Departamentos");
+const Funcionarios_1 = require("../models/Funcionarios");
 const departamentosRouter = (0, express_1.Router)();
 exports.departamentosRouter = departamentosRouter;
 departamentosRouter.get("/departamentos", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const todosDepartamentos = yield Departamentos_1.Departamentos.findAll();
+    const todosDepartamentos = yield Departamentos_1.Departamentos.findAll({
+        include: [Funcionarios_1.Funcionarios]
+    });
     return res.status(200).json(todosDepartamentos);
 }));
 departamentosRouter.get("/departamentos/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

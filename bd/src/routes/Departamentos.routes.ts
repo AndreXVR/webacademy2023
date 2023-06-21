@@ -1,12 +1,15 @@
 import { Router } from "express";
 import { Request, Response } from "express";
 import { Departamentos } from "../models/Departamentos";
+import { Funcionarios } from "../models/Funcionarios";
 
 const departamentosRouter: Router = Router();
 
 departamentosRouter.get("/departamentos", async (req: Request, res: Response):
 Promise<Response> => {
- const todosDepartamentos: Departamentos[] = await Departamentos.findAll();
+ const todosDepartamentos: Departamentos[] = await Departamentos.findAll({
+    include: [Funcionarios]
+ });
  return res.status(200).json(todosDepartamentos);
 });
 

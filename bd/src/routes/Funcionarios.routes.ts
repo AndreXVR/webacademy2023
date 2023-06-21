@@ -15,7 +15,7 @@ Promise<Response> => {
     ],
     distinct:true
  });
- return res.status(200).json(todosFuncionarios.rows);
+ return res.status(200).json(todosFuncionarios);
 });
 
 funcionariosRouter.get("/funcionarios/:id", async (req: Request, res: Response):

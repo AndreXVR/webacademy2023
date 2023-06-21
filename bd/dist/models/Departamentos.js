@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Departamentos = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const Funcionarios_1 = require("./Funcionarios");
+const Projetos_1 = require("./Projetos");
 let Departamentos = exports.Departamentos = class Departamentos extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -50,8 +51,13 @@ __decorate([
     (0, sequelize_typescript_1.HasOne)(() => Funcionarios_1.Funcionarios, 'gestorId'),
     __metadata("design:type", Funcionarios_1.Funcionarios)
 ], Departamentos.prototype, "gestor", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => Projetos_1.Projetos, 'gestorId'),
+    __metadata("design:type", Projetos_1.Projetos)
+], Departamentos.prototype, "projeto", void 0);
 exports.Departamentos = Departamentos = __decorate([
     (0, sequelize_typescript_1.Table)({
         timestamps: true,
+        paranoid: true
     })
 ], Departamentos);

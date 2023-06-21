@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dependentes = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
+const Funcionarios_1 = require("./Funcionarios");
 let Dependentes = exports.Dependentes = class Dependentes extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -28,23 +29,7 @@ __decorate([
         type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
-], Dependentes.prototype, "name", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-    }),
-    __metadata("design:type", String)
-], Dependentes.prototype, "fone", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    sequelize_typescript_1.Unique,
-    sequelize_typescript_1.IsEmail,
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-    }),
-    __metadata("design:type", String)
-], Dependentes.prototype, "email", void 0);
+], Dependentes.prototype, "nome", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
@@ -52,8 +37,17 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], Dependentes.prototype, "idade", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => Funcionarios_1.Funcionarios),
+    (0, sequelize_typescript_1.AllowNull)(true),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUID,
+    }),
+    __metadata("design:type", String)
+], Dependentes.prototype, "funcionarioId", void 0);
 exports.Dependentes = Dependentes = __decorate([
     (0, sequelize_typescript_1.Table)({
         timestamps: true,
+        paranoid: true
     })
 ], Dependentes);
