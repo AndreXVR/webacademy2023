@@ -1,0 +1,3 @@
+Para executar a aplicação:
+-Utilizar o comando docker-compose up
+-Utilizar algum browser para acessar a pagina local da aplicação pelo navegador.
